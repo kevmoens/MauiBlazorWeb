@@ -19,5 +19,10 @@ namespace RazorClassLibrary1.Attachments
         {
             return Task.FromResult(-1);
         }
+
+        public Task<int> PrintTo(string Printer)
+        {
+            return Task.FromResult(-1);
+        }
     }
 }

@@ -11,6 +11,7 @@
     and tell us what you think.
 </div>
 <button class="btn btn-primary" @onclick="OpenFile">Open</button>
+<button class="btn btn-primary" @onclick="PrintFile">Print</button>
 
 @code {
 
@@ -23,6 +24,17 @@
     {
         Attachment.FileName = @"C:\temp\AsyncProcessFlow.png";
         if (await Attachment.Open() < 0)
+        {
+            var parameters = new ModalParameters();
+            parameters.Add(nameof(MessageBoxOKCancel.Message), "Operation Unsupported");
+
+            Modal.Show<MessageBoxOKCancel>("Attachment Open", parameters);
+        }
+    }
+    public async void PrintFile()
+    {
+        Attachment.FileName = @"C:\temp\Phase 2 DoD.xlsx";
+        if (await Attachment.PrintTo("Microsoft Print to PDF") < 0)
         {
             var parameters = new ModalParameters();
             parameters.Add(nameof(MessageBoxOKCancel.Message), "Operation Unsupported");

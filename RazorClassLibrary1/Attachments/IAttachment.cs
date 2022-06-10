@@ -11,5 +11,6 @@ namespace RazorClassLibrary1.Attachments
         string? FileName { get; set; }
         Task<int> Open();
         Task<int> Print();
+        Task<int> PrintTo(string Printer);
     }
 }

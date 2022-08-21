@@ -107,6 +107,7 @@ namespace MauiBlazorApp1.Attachments
             {
                 printers.Add((string)printerInterfaceInformation.Properties["System.ItemNameDisplay"]);
             }
+            return printers;
         }
         private void PrintExcelFile(string Printer) {
          Type excelType = Type.GetTypeFromProgID("Excel.Application");
